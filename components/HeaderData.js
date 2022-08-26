@@ -6,7 +6,7 @@ export const HeaderData = [
     {
         icon:'favorite',
         iconType:MaterialIcons,
-        color:'#000'
+        color:'#FF365D'
     },
     {
         icon:'search',

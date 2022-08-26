@@ -13,7 +13,7 @@ const Header = () => {
         <HStack alignItems="center">
           <IconButton icon={<Icon size="8" as={MaterialIcons} name="menu" color="#000" />} />
           <Text color="#000" fontSize="20" fontWeight="bold">
-            Home
+            Dashboard
           </Text>
         </HStack>
         <HStack>
