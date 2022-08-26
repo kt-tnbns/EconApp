@@ -24,10 +24,10 @@ const Footer = () => {
 
   return (
     <NativeBaseProvider>
-      <Box flex={1} bg="white" safeAreaTop width="100%" alignSelf="center">
+      <Box flex={1} bg='#fff1' safeAreaTop width="100%" alignSelf="center">
         <Center flex={1}></Center>
 
-        <HStack height="60" bg="primary.50" alignItems="center" safeAreaBottom shadow={2}>
+        <HStack height="60" bg="white" alignItems="center" safeAreaBottom shadow={2}>
           {FooterData.map((item, index) => {
             const IconType = item.iconType
             return (
@@ -47,9 +47,9 @@ const Footer = () => {
                       />
                     }
                     color="primary.700"
-                    size="8"
+                    size="9"
                   />
-
+                
                 </Center>
               </Pressable>
             );

@@ -1,36 +1,37 @@
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import Ionicons from 'react-native-vector-icons/Ionicons'
 
 export const FooterData = [
     {
         title:'Home',
-        iconType:MaterialCommunityIcons,
+        iconType:Ionicons,
         iconSelected:'home',
-        iconUnselect : 'home',
+        iconUnselect : 'home-outline',
 
     },
     {
         title:'GoldPrice',
-        iconType:MaterialCommunityIcons,
-        iconSelected:'gold',
-        iconUnselect : 'gold'
+        iconType:Ionicons,
+        iconSelected:'prism',
+        iconUnselect : 'prism-outline'
     },
     {
         title:'OilPrice',
         iconType:MaterialCommunityIcons,
         iconSelected:'gas-station',
-        iconUnselect : 'gas-station'
+        iconUnselect : 'gas-station-outline'
     },
     {
         title:'Currency',
-        iconType:MaterialCommunityIcons,
-        iconSelected:'currency-usd',
-        iconUnselect :'currency-usd'
+        iconType:Ionicons,
+        iconSelected:'logo-usd',
+        iconUnselect :'logo-usd'
     },
     {
         title:'GDP',
-        iconType:MaterialCommunityIcons,
-        iconSelected:'chart-bar',
-        iconUnselect : 'chart-bar'
+        iconType:Ionicons,
+        iconSelected:'bar-chart',
+        iconUnselect : 'bar-chart-outline'
     }
 ]
