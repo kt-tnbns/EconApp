@@ -27,7 +27,7 @@ const Footer = () => {
       <Box flex={1} bg='#fff1' safeAreaTop width="100%" alignSelf="center">
         <Center flex={1}></Center>
 
-        <HStack height="60" bg="white" alignItems="center" safeAreaBottom shadow={2}>
+        <HStack height="10" bg="white" alignItems="center" safeAreaBottom shadow={2}>
           {FooterData.map((item, index) => {
             const IconType = item.iconType
             return (
@@ -46,8 +46,8 @@ const Footer = () => {
                         name={selected === index ? item.iconSelected : item.iconUnselect}
                       />
                     }
-                    color="primary.700"
-                    size="9"
+                    color="#6d28d9"
+                    size="6"
                   />
                 
                 </Center>

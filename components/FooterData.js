@@ -8,30 +8,34 @@ export const FooterData = [
         iconType:Ionicons,
         iconSelected:'home',
         iconUnselect : 'home-outline',
-
+        color:'info',
     },
     {
         title:'GoldPrice',
-        iconType:Ionicons,
-        iconSelected:'prism',
-        iconUnselect : 'prism-outline'
+        iconType:MaterialCommunityIcons,
+        iconSelected:'gold',
+        iconUnselect : 'gold',
+        color:'tertiary',
     },
     {
         title:'OilPrice',
         iconType:MaterialCommunityIcons,
         iconSelected:'gas-station',
-        iconUnselect : 'gas-station-outline'
+        iconUnselect : 'gas-station-outline',
+        color:'warning',
     },
     {
         title:'Currency',
         iconType:Ionicons,
         iconSelected:'logo-usd',
-        iconUnselect :'logo-usd'
+        iconUnselect :'logo-usd',
+        color:'indigo',
     },
     {
         title:'GDP',
         iconType:Ionicons,
         iconSelected:'bar-chart',
-        iconUnselect : 'bar-chart-outline'
+        iconUnselect : 'bar-chart-outline',
+        color:'secondary'
     }
 ]
