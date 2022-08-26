@@ -1,112 +1,77 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 import React from 'react';
-import type {Node} from 'react';
+// 1. import `NativeBaseProvider` component
+import {Fab} from 'native-base';
 import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
+  NativeBaseProvider,
   Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+  Box,
+  VStack,
+  HStack,
+  Button,
+  IconButton,
+  Icon,
+  Center,
+  StatusBar,
+  useDisclose,
+  Modal,
+} from 'native-base';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
+export default function App() {
+  // 2. Use at the root of your app
+  const {isOpen, onOpen, onClose} = useDisclose();
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
+    <NativeBaseProvider>
+      <StatusBar bg="#3700B3" barStyle="light-content" />
+      <Box safeAreaTop bg="#6200ee" />
+      <HStack
+        bg="#013"
+        px="1"
+        py="3"
+        justifyContent="space-between"
+        alignItems="center"
+        w="100%">
+        <HStack alignItems="center">
+          <IconButton icon={<Icon as={Ionicons} name="reorder-three-outline"  color="white" />} />
+          <Text color="white" fontSize="20" fontWeight="bold">
+            Home
+          </Text>
+        </HStack>
+        <HStack>
+          <IconButton icon={<Icon as={Ionicons} name="home"  color="white" />} />
+          <IconButton icon={<Icon as={Ionicons} name="search"  color="white" />} />
+          <IconButton icon={<Icon as={Ionicons} name="ellipsis-vertical-outline"  color="white" />} />
+        </HStack>
+      </HStack>
+
+
+      <Box flex={1} bg="#fff" alignItems="center" justifyContent="center">
+        <Text>Open up App.js to start working on your app!</Text>
+        <Center>
+          <Modal isOpen={isOpen} onClose={onClose}>
+            <Modal.Content>
+              <Modal.CloseButton />
+              <Modal.Header fontSize="4xl" fontWeight="bold">
+                Delete Customer
+              </Modal.Header>
+              <Modal.Body>
+                This will remove all data relating to Alex. This action cannot
+                be reversed. Deleted data can not be recovered.
+              </Modal.Body>
+              <Modal.Footer>
+                <Button variant="unstyled" mr="1" onPress={onClose}>
+                  Cancel
+                </Button>
+                <Button colorScheme="error" onPress={onClose}>
+                  Delete
+                </Button>
+              </Modal.Footer>
+            </Modal.Content>
+          </Modal>
+          <Button onPress={onOpen}>Open Modal</Button>
+        </Center>
+        <Fab renderInPortal={false} shadow={2} size="sm" icon={<Icon as={Ionicons} name="add-outline"  color="white" size="30px" />} />
+      </Box>
+    </NativeBaseProvider>
   );
-};
-
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-};
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
-
-export default App;
+}
