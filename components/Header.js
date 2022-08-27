@@ -1,30 +1,36 @@
 import { StyleSheet, View } from 'react-native'
-import { NativeBaseProvider,Box,HStack,StatusBar,IconButton,Icon,Text } from 'native-base'
+import { NativeBaseProvider,Box,HStack,StatusBar,IconButton,Icon,Text,Switch,useColorMode,useColorModeValue } from 'native-base'
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import React from 'react'
 import { HeaderData } from './HeaderData';
+import Dashboard from '../screens/Dashboard';
 
 const Header = () => {
+    const {
+        toggleColorMode
+      } = useColorMode();
+
+    const theme = {
+        bgColor: useColorModeValue('warmGray.50', 'coolGray.800'),
+        txtColor: useColorModeValue('coolGray.800','warmGray.50')
+    }
   return (
     <NativeBaseProvider >
-        <StatusBar bg="#3700B3" barStyle="light-content" />
-      <Box safeAreaTop bg="#fff" />
-      <HStack bg="#fff" px="1" py="3" justifyContent="space-between" alignItems="center" w="100%" >
+      <Box safeAreaTop  />
+      <HStack bg={theme.bgColor} px="1" py="3" justifyContent="space-between" alignItems="center" w="100%" >
         <HStack alignItems="center">
-          <IconButton icon={<Icon size="8" as={MaterialIcons} name="menu" color="#000" />} />
-          <Text color="#000" fontSize="20" fontWeight="bold">
+          <IconButton  icon={<Icon size="8" as={MaterialIcons} name="menu" color={theme.txtColor}/>} />
+          <Text color={theme.txtColor} fontSize="20" fontWeight="bold">
             Dashboard
           </Text>
         </HStack>
         <HStack>
-            {HeaderData.map((item,index) => {
-                return(
-                    <IconButton key={item.name} icon={<Icon as={item.iconType} name={item.icon} size="6" color={item.color} />} />
-                    )
-                }
-            )}
+            <IconButton icon={<Icon as={MaterialIcons} name='favorite' size="6" color='#FF365D' />} />
+            <IconButton icon={<Icon as={MaterialCommunityIcons} onPress={toggleColorMode} name={useColorModeValue('white-balance-sunny','weather-night')} size="6" color={theme.txtColor} />} />
         </HStack>
       </HStack>
+      <Dashboard theme={theme} toggleColorMode={toggleColorMode}/>
     </NativeBaseProvider>
   )
 }

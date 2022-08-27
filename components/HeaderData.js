@@ -9,8 +9,9 @@ export const HeaderData = [
         color:'#FF365D'
     },
     {
-        icon:'search',
-        iconType:MaterialIcons,
+        icon:'white-balance-sunny',
+        seconIcon:'weather-night',
+        iconType:MaterialCommunityIcons,
         color:'#000'
     },
     {
