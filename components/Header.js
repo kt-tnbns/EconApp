@@ -5,11 +5,11 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import React from 'react'
 import { HeaderData } from './HeaderData';
 import Dashboard from '../screens/Dashboard';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 
 const Header = () => {
-    const {
-        toggleColorMode
-      } = useColorMode();
+    const {toggleColorMode} = useColorMode();
 
     const theme = {
         bgColor: useColorModeValue('warmGray.50', 'coolGray.800'),
@@ -27,10 +27,10 @@ const Header = () => {
         </HStack>
         <HStack>
             <IconButton icon={<Icon as={MaterialIcons} name='favorite' size="6" color='#FF365D' />} />
-            <IconButton icon={<Icon as={MaterialCommunityIcons} onPress={toggleColorMode} name={useColorModeValue('white-balance-sunny','weather-night')} size="6" color={theme.txtColor} />} />
+            <IconButton onPress={toggleColorMode} icon={<Icon as={MaterialCommunityIcons}  name={useColorModeValue('white-balance-sunny','weather-night')} size="6" color={theme.txtColor} />} />
         </HStack>
       </HStack>
-      <Dashboard theme={theme} toggleColorMode={toggleColorMode}/>
+      <Dashboard theme={theme}/>
     </NativeBaseProvider>
   )
 }

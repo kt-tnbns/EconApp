@@ -24,8 +24,7 @@ const Footer = () => {
 
   return (
     <NativeBaseProvider>
-      <Box flex={1} bg='#fff1' safeAreaTop width="100%" alignSelf="center">
-        <Center flex={1}></Center>
+      <Box  bg='#fff1' safeAreaTop width="100%" alignSelf="center">
 
         <HStack height="10" bg="white" alignItems="center" safeAreaBottom shadow={2}>
           {FooterData.map((item, index) => {

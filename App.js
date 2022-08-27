@@ -1,19 +1,15 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import Footer from './components/Footer'
-import Header from './components/Header'
-import { SafeAreaView } from 'react-native-safe-area-context'
-import { NativeBaseProvider,Center } from 'native-base'
+import * as React from 'react';
+import { NativeBaseProvider } from 'native-base';
+import {NavigationContainer} from '@react-navigation/native';
+import {createDrawerNavigator} from '@react-navigation/drawer';
+import Navigation from './navigations/Navigation';
 
-const App = () => {
+export default function App() {
   return (
     <NativeBaseProvider>
-        <Header/>
-        <Footer/>
+      <NavigationContainer>
+        <Navigation />
+      </NavigationContainer>
     </NativeBaseProvider>
-  )
+  );
 }
-
-export default App
-
-const styles = StyleSheet.create({})
