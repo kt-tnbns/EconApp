@@ -30,7 +30,6 @@ const Header = () => {
             <IconButton onPress={toggleColorMode} icon={<Icon as={MaterialCommunityIcons}  name={useColorModeValue('white-balance-sunny','weather-night')} size="6" color={theme.txtColor} />} />
         </HStack>
       </HStack>
-      <Dashboard theme={theme}/>
     </NativeBaseProvider>
   )
 }
