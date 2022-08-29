@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text ,Switch} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {getHeaderTitle} from '@react-navigation/elements';
@@ -8,11 +8,19 @@ import Dashboard from '../screens/Dashboard';
 import OilPrice from '../screens/OilPrice';
 import Header from '../components/Header';
 import { ScreenDetail } from './ScreenDetail';
+import { EventRegister } from 'react-native-event-listeners'
+import themeContext from '../config/themeContext';
+
 const Drawer = createDrawerNavigator();
 
 const Navigation = () => {
+  const theme = React.useContext(themeContext);
+  const [mode , setMode] = React.useState(false);
   return (
-    <Drawer.Navigator useLegacyImplementation>
+    <Drawer.Navigator useLegacyImplementation style= {[
+      {backgroundColor: theme.background} ,
+      {color: theme.color}
+    ]} >
         {ScreenDetail.map((item,index) => {
             return(
                 <Drawer.Screen
@@ -23,11 +31,23 @@ const Navigation = () => {
                 {
                     headerTitleAlign:'center',
                     drawerLabel: item.drawerLabel,
+                    headerRight: () => (
+                    <Switch 
+                      value={mode} 
+                      onValueChange={(value) => {
+                        setMode(value);
+                        EventRegister.emit("changeTheme", value);
+
+                      }} 
+                      
+                      />)
                 }}
       />
             )
+           
         })}
     </Drawer.Navigator>
+     
   );
 };
 
