@@ -12,13 +12,15 @@ import { EventRegister } from 'react-native-event-listeners'
 import { ScreenStackHeaderBackButtonImage } from 'react-native-screens';
 
 export default function App() {
-  const [mode, setMode] = useState(false);
+  const [mode, setMode] = useState(true);
+  console.log({ mode })
   
   useEffect(() => {
     let eventListener = EventRegister.addEventListener(
       "changeTheme",
       (data) => {
         setMode(data);
+        console.log({ data })
       }
     );
       return () => {
@@ -29,7 +31,7 @@ export default function App() {
   return (
    
     <NativeBaseProvider>
-      <NavigationContainer theme={ mode === true ? DarkTheme : DefaultTheme}>
+      <NavigationContainer theme={ mode === false ? DarkTheme : DefaultTheme}>
         <Navigation />
       </NavigationContainer>
     </NativeBaseProvider>
